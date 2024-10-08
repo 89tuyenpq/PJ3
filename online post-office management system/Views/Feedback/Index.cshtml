@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Online_Post_Office_Management_System.Models.Feedback>
+
+@{
+    ViewData["Title"] = "Feedback List";
+}
+
+<h1>Feedback List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Submitted By</th>
+            <th>Date Submitted</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var feedback in Model)
+        {
+            <tr>
+                <td>@feedback.Title</td>
+                <td>@feedback.SubmittedBy</td>
+                <td>@feedback.DateSubmitted.ToString("MM/dd/yyyy")</td>
+                <td>
+                    <a asp-controller="Feedback" asp-action="Details" asp-route-id="@feedback.Id" class="btn btn-info">Details</a>
+                    <a asp-controller="Feedback" asp-action="Delete" asp-route-id="@feedback.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Feedback" asp-action="Create" class="btn btn-success">Add New Feedback</a>

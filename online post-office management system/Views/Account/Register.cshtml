@@ -1,0 +1,23 @@
+﻿
+@model Online_Post_Office_Management_System.ViewModels.RegisterViewModel
+
+<h2>Đăng Ký</h2>
+
+<form asp-action="Register" method="post">
+    <div>
+        <label>Email:</label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div>
+        <label>Mật khẩu:</label>
+        <input asp-for="Password" type="password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <label>Xác nhận mật khẩu:</label>
+        <input asp-for="ConfirmPassword" type="password" />
+        <span asp-validation-for="ConfirmPassword"></span>
+    </div>
+    <button type="submit">Đăng Ký</button>
+</form>

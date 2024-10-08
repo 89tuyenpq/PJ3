@@ -1,0 +1,17 @@
+﻿@model Online_Post_Office_Management_System.Models.Feedback
+
+@{
+    ViewData["Title"] = "Feedback Details";
+}
+
+<h1>Feedback Details</h1>
+
+<div>
+    <h4>Title: @Model.Title</h4>
+    <h4>Submitted By: @Model.SubmittedBy</h4>
+    <h4>Date Submitted: @Model.DateSubmitted.ToString("MM/dd/yyyy")</h4>
+    <h4>Content:</h4>
+    <p>@Model.Content</p>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

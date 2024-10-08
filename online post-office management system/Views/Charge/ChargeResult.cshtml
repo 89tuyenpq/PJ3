@@ -1,0 +1,16 @@
+﻿@model Online_Post_Office_Management_System.Models.ChargeCalculationResult
+
+@{
+    ViewData["Title"] = "Charge Calculation Result";
+}
+
+<h1>Charge Calculation Result</h1>
+
+<div>
+    <h3>Result Details:</h3>
+    <p>Distance: @Model.Distance</p>
+    <p>Weight: @Model.Weight</p>
+    <p>Amount: @Model.Amount</p>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Back</a>

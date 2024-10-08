@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Online_Post_Office_Management_System.Models.Office>
+
+@{
+    ViewData["Title"] = "Office Management";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Office</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Office ID</th>
+            <th>Office Name</th>
+            <th>Location</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var office in Model)
+        {
+            <tr>
+                <td>@office.OfficeId</td>
+                <td>@office.OfficeName</td>
+                <td>@office.Location</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@office.OfficeId" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@office.OfficeId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

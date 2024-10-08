@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Online_Post_Office_Management_System.Models.Service>
+
+@{
+    ViewData["Title"] = "Service Management";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Service</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Service ID</th>
+            <th>Service Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var service in Model)
+        {
+            <tr>
+                <td>@service.ServiceId</td>
+                <td>@service.ServiceName</td>
+                <td>@service.Description</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@service.ServiceId" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@service.ServiceId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

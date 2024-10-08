@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Online_Post_Office_Management_System.Models.Package>
+
+@{
+    ViewData["Title"] = "Package Management";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Package</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Package ID</th>
+            <th>Package Name</th>
+            <th>Weight</th>
+            <th>Dimensions</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var package in Model)
+        {
+            <tr>
+                <td>@package.PackageId</td>
+                <td>@package.PackageName</td>
+                <td>@package.Weight</td>
+                <td>@package.Dimensions</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@package.PackageId" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@package.PackageId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

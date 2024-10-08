@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Online_Post_Office_Management_System.Models.ChargeOnDistance>
+
+@{
+    ViewData["Title"] = "Manage Charges";
+}
+
+<h1>Manage Charges</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Distance</th>
+            <th>Weight</th>
+            <th>Charge</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var charge in Model)
+        {
+            <tr>
+                <td>@charge.Distance</td>
+                <td>@charge.Weight</td>
+                <td>@charge.Amount</td>
+                <td>
+                    <a asp-controller="Charge" asp-action="Edit" asp-route-id="@charge.Id" class="btn btn-warning">Edit</a>
+                    <a asp-controller="Charge" asp-action="Delete" asp-route-id="@charge.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Charge" asp-action="Create" class="btn btn-success">Add New Charge</a>
